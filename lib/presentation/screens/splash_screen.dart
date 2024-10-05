@@ -5,6 +5,14 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Text(
+          'Daily Topper',
+          style: TextStyle(fontSize: 30),
+        ),
+      ),
+    );
   }
 }
