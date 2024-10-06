@@ -2,6 +2,7 @@ import 'package:daily_topper_news/controller/home_screen_controller.dart';
 import 'package:daily_topper_news/presentation/utils/assets.dart';
 import 'package:daily_topper_news/presentation/utils/package_dependency_wrappers.dart';
 import 'package:daily_topper_news/presentation/widgets/menu_button_widget.dart';
+import 'package:daily_topper_news/presentation/widgets/news_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -36,6 +37,7 @@ class HomeScreen extends GetView<HomeScreenController> {
               separatorBuilder: (context, index) => SizedBox(height: 11.h),
             ),
             SizedBox(height: 32.h),
+            // News category section
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.r, vertical: 8.r),
               child: Row(
@@ -74,6 +76,7 @@ class HomeScreen extends GetView<HomeScreenController> {
                 ],
               ),
             ),
+
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.r),
               child: Row(
@@ -128,7 +131,7 @@ class HomeScreen extends GetView<HomeScreenController> {
                             'International',
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                              color: Color(0xFF525252),
+                              color: const Color(0xFF525252),
                               fontSize: 9.5.sp,
                               fontFamily: 'Roboto',
                               fontWeight: FontWeight.w400,
@@ -141,43 +144,18 @@ class HomeScreen extends GetView<HomeScreenController> {
                 ],
               ),
             ),
-            ListView.separated(
+            // News Headline section
+            ListView.builder(
               shrinkWrap: true,
-              padding: EdgeInsets.all(16.r),
-              itemCount: controller.menuData.length,
+              physics: const NeverScrollableScrollPhysics(),
+              padding: EdgeInsets.zero,
+              itemCount: 5,
               itemBuilder: (context, index) {
-                return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24.r, vertical: 12.r),
-                  child: Row(
-                    children: [
-                      Wrapper.setCachedNetworkImage(
-                        imageUrl:
-                        'https://media.cnn.com/api/v1/images/stellar/prod/20240303-03-trump-biden-split-20240304120045189.jpg',
-                        fit: BoxFit.fill,
-                        width: 76.h,
-                        height: 48.h,
-                      ),
-                      SizedBox(width: 10.w),
-                      Flexible(
-                        child: Text(
-                          'কোটা সংস্কারের দাবিতে বঙ্গভবনে স্মারকলিপি দিলেন শিক্ষার্থীরা',
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            color: Color(0xFF3F3F3F),
-                            fontSize: 16.sp,
-                            fontFamily: 'Tiro Bangla',
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                return NewsCardWidget(
+                  onNewsCardTap: () {},
                 );
               },
-              separatorBuilder: (context, index) => SizedBox(height: 11.h),
             ),
-        
           ],
         ),
       ),
