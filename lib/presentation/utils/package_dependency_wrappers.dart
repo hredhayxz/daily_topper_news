@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Wrapper {
   Wrapper._();
@@ -12,16 +11,13 @@ class Wrapper {
     double? height,
     BoxFit fit = BoxFit.fill,
     Color placeholderColor = Colors.grey,
-    IconData errorIcon = Icons.error,
+    IconData errorIcon = Icons.image,
   }) {
     return CachedNetworkImage(
       width: width,
       height: height,
       fit: fit,
-      placeholder: (_, __) => CircularProgressIndicator(
-        color: Colors.white,
-        strokeWidth: 2.w,
-      ),
+      placeholder: (_, __) => Icon(errorIcon),
       imageUrl: imageUrl,
       errorWidget: (_, __, ___) => Icon(errorIcon),
     );
