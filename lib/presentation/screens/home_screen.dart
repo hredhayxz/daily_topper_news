@@ -1,5 +1,6 @@
 import 'package:daily_topper_news/controller/home_screen_controller.dart';
 import 'package:daily_topper_news/presentation/screens/news_category_screen.dart';
+import 'package:daily_topper_news/presentation/screens/news_details_screen.dart';
 import 'package:daily_topper_news/presentation/utils/assets.dart';
 import 'package:daily_topper_news/presentation/utils/package_dependency_wrappers.dart';
 import 'package:daily_topper_news/presentation/widgets/menu_button_widget.dart';
@@ -156,7 +157,10 @@ class HomeScreen extends GetView<HomeScreenController> {
               itemCount: 5,
               itemBuilder: (context, index) {
                 return NewsCardWidget(
-                  onNewsCardTap: () {},
+                  onNewsCardTap: () {
+                    Get.to(() => const NewsDetailsScreen(),
+                        transition: Transition.downToUp);
+                  },
                 );
               },
             ),
