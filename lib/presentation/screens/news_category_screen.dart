@@ -1,8 +1,10 @@
-import 'package:daily_topper_news/presentation/utils/package_dependency_wrappers.dart';
+import 'package:daily_topper_news/controller/news_category_screen_controller.dart';
+import 'package:daily_topper_news/presentation/widgets/news_category_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
-class NewsCategoryScreen extends StatelessWidget {
+class NewsCategoryScreen extends GetView<NewsCategoryScreenController> {
   const NewsCategoryScreen({super.key});
 
   @override
@@ -26,56 +28,12 @@ class NewsCategoryScreen extends StatelessWidget {
                   crossAxisSpacing: 24.h,
                   mainAxisSpacing: 24.h,
                   childAspectRatio: 0.8),
-              itemCount: 37,
+              itemCount: controller.newsCategoryData.length,
               itemBuilder: (context, index) {
                 return NewsCategoryCardWidget(
-                  onCategoryTap: () {},
-                );
+                    newsCategoryData: controller.newsCategoryData[index],
+                    onCategoryTap: () {});
               },
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class NewsCategoryCardWidget extends StatelessWidget {
-  const NewsCategoryCardWidget({
-    super.key,
-    required this.onCategoryTap,
-  });
-
-  final VoidCallback onCategoryTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onCategoryTap,
-      child: SizedBox(
-        width: 96.h,
-        child: Column(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(4),
-              child: Wrapper.setCachedNetworkImage(
-                imageUrl:
-                    'https://media.cnn.com/api/v1/images/stellar/prod/20240303-03-trump-biden-split-20240304120045189.jpg',
-                fit: BoxFit.fill,
-                width: 96.h,
-                height: 96.h,
-              ),
-            ),
-            SizedBox(height: 8.h),
-            Text(
-              'National',
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                color: const Color(0xFF525252),
-                fontSize: 12.sp,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w400,
-              ),
             ),
           ],
         ),
