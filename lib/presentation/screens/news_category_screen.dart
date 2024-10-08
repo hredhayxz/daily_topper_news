@@ -11,6 +11,12 @@ class NewsCategoryScreen extends GetView<NewsCategoryScreenController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Get.back();
+          },
+        ),
         title: const Text('Categories'),
       ),
       body: SingleChildScrollView(

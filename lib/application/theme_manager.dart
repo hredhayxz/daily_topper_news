@@ -20,6 +20,9 @@ class ThemeManager {
           fontFamily: 'Roboto',
           fontWeight: FontWeight.w500,
         ),
+        actionsIconTheme: const IconThemeData(
+          color: Colors.black,
+        ),
       ),
       iconTheme: IconThemeData(
         color: const Color(0xFF3F3F3F),
