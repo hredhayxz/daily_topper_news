@@ -1,4 +1,5 @@
 import 'package:daily_topper_news/controller/home_screen_controller.dart';
+import 'package:daily_topper_news/presentation/screens/news_category_screen.dart';
 import 'package:daily_topper_news/presentation/utils/assets.dart';
 import 'package:daily_topper_news/presentation/utils/package_dependency_wrappers.dart';
 import 'package:daily_topper_news/presentation/widgets/menu_button_widget.dart';
@@ -53,7 +54,10 @@ class HomeScreen extends GetView<HomeScreenController> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => const NewsCategoryScreen(),
+                          transition: Transition.rightToLeft);
+                    },
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -117,7 +121,7 @@ class HomeScreen extends GetView<HomeScreenController> {
                       child: Column(
                         children: [
                           ClipRRect(
-                            borderRadius: BorderRadius.circular(4),
+                            borderRadius: BorderRadius.circular(4.r),
                             child: Wrapper.setCachedNetworkImage(
                               imageUrl:
                                   'https://media.cnn.com/api/v1/images/stellar/prod/20240303-03-trump-biden-split-20240304120045189.jpg',
