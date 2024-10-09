@@ -28,7 +28,7 @@ class NewsCardWidget extends StatelessWidget {
           children: [
             Wrapper.setCachedNetworkImage(
               imageUrl:
-                  'https://media.cnn.com/api/v1/images/stellar/prod/20240303-03-trump-biden-split-20240304120045189.jpg',
+                  'https://upload.wikimedia.org/wikipedia/commons/f/f8/10.Bangladesh_quota_reform_movement_2024.jpg',
               fit: BoxFit.fill,
               width: 76.h,
               height: 48.h,
